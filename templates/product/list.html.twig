@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ProductController!{% endblock %}
+
+{% block body %}
+
+{#    <ul>#}
+{#        {% for product in products %}#}
+{#        <li>{{ product.name }}</li>#}
+{#        {% endfor %}#}
+{#    </ul>#}
+
+    <div class="row mt-5">
+        {% for product in products %}
+            <div class="col-lg-3">
+                <div class="card m-1" style="width: 18rem;">
+                    <img class="card-img-top" src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone-xr-select-2019-family?wid=882&amp;hei=1058&amp;fmt=jpeg&amp;qlt=80&amp;op_usm=0.5,0.5&amp;.v=1550795424612" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ product.name }}</h5>
+                        <p class="card-text">{{ product.description }}</p>
+                        <p class="card-text">{{ product.price }}</p>
+                        <a href="{{ path('product_show', {'id': product.id }) }}" class="btn btn-primary">Voir le
+                            produit</a>
+                        <div>
+                            <a href="{{ path('product_modify', {'id': product.id }) }}" class="btn
+                            btn-primary">modifier le produit</a>
+                        </div>
+                        <form action="{{ path('product_delete', {'id': product.id }) }}" method="post">
+                            <input type="hidden" name="token" value="{{ csrf_token('delete') }}">
+                            <button class="btn btn-primary"> supprimer </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+
+{% endblock %}
