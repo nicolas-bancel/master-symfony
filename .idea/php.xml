@@ -1,33 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="ChangeListManager">
-    <list default="true" id="202bd091-2a52-4726-ba73-b2abe952e4c6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/master-symfony.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/master-symfony.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Migrations/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-    </list>
-    <option name="SHOW_DIALOG" value="false" />
-    <option name="HIGHLIGHT_CONFLICTS" value="true" />
-    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
-    <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
-    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
-    <execution>
-      <executable />
-    </execution>
-  </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="PhpWorkspaceProjectConfiguration">
+  <component name="PhpIncludePathManager">
     <include_path>
       <path value="$PROJECT_DIR$/vendor/twig/twig" />
       <path value="$PROJECT_DIR$/vendor/twig/extra-bundle" />
@@ -138,51 +111,5 @@
       <path value="$PROJECT_DIR$/vendor/psr/cache" />
     </include_path>
   </component>
-  <component name="ProjectId" id="1X4iIyNje2xaRUFs2XoKLnaZtZM" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
-  <component name="ProjectViewState">
-    <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
-    <option name="showLibraryContents" value="true" />
-  </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="ignore.virus.scanning.warn.message" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
-  </component>
-  <component name="SvnConfiguration">
-    <configuration />
-  </component>
-  <component name="TaskManager">
-    <task active="true" id="Default" summary="Default task">
-      <changelist id="202bd091-2a52-4726-ba73-b2abe952e4c6" name="Default Changelist" comment="" />
-      <created>1580311691168</created>
-      <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
-      <updated>1580311691168</updated>
-      <workItem from="1580311692543" duration="856000" />
-      <workItem from="1580312622120" duration="3899000" />
-    </task>
-    <servers />
-  </component>
-  <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="720" y="311" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1580312235965">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="720" y="311" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1580312235965" />
-    <state x="461" y="163" key="SettingsEditor" timestamp="1580312794198">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="461" y="163" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1580312794198" />
-    <state x="636" y="345" key="com.intellij.ide.util.TipDialog" timestamp="1580312623198">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="636" y="345" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1580312623198" />
-  </component>
+  <component name="PhpProjectSharedConfiguration" php_language_level="7.2" />
 </project>
