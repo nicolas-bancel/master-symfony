@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ProductController!{% endblock %}
+
+{% block body %}
+
+    {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+    {{ form_widget(form) }}
+{#    button.btn.btn-primary{ajouter}#}
+    <button class="btn btn-primary">
+        ajouter
+    </button>
+    {{ form_end(form) }}
+
+
+{% endblock %}

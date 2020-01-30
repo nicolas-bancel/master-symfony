@@ -2,16 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="202bd091-2a52-4726-ba73-b2abe952e4c6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/master-symfony.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/master-symfony.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Migrations/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/twig.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/twig.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/IndexController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/IndexController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Product.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/_navbar.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/_navbar.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/index/homepage.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index/homepage.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -146,11 +143,13 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="ignore.virus.scanning.warn.message" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
   </component>
   <component name="SvnConfiguration">
@@ -164,7 +163,8 @@
       <option name="presentableId" value="Default" />
       <updated>1580311691168</updated>
       <workItem from="1580311692543" duration="856000" />
-      <workItem from="1580312622120" duration="3899000" />
+      <workItem from="1580312622120" duration="6219000" />
+      <workItem from="1580377764438" duration="4454000" />
     </task>
     <servers />
   </component>
@@ -176,13 +176,17 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="720" y="311" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1580312235965" />
-    <state x="461" y="163" key="SettingsEditor" timestamp="1580312794198">
+    <state x="703" y="344" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1580380280700">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="461" y="163" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1580312794198" />
-    <state x="636" y="345" key="com.intellij.ide.util.TipDialog" timestamp="1580312623198">
+    <state x="703" y="344" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1040@0.0.1920.1040" timestamp="1580380280700" />
+    <state x="255" y="163" width="1474" height="713" key="SettingsEditor" timestamp="1580378692020">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="636" y="345" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1580312623198" />
+    <state x="255" y="163" width="1474" height="713" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1580378692020" />
+    <state x="636" y="345" key="com.intellij.ide.util.TipDialog" timestamp="1580377764761">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="636" y="345" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1580377764761" />
   </component>
 </project>
