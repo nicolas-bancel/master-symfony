@@ -150,15 +150,15 @@ class ProductController extends AbstractController
 
 
     /**
-     * @Route("/product/{id}", name="product_show")
+     * @Route("/product/{slug}", name="product_show")
      */
-    public function show($id)
+    public function show($slug)
     {
-        dump($id);
+//        dump($id);
         //SELECT * FROM table where id =?
         //on reccupere le depot qui contient nos produits
         $productRepository = $this->getDoctrine()->getRepository(Product::class);
-        $product = $productRepository->find($id);
+        $product = $productRepository->findOneBy(['slug' => $slug]);
 //        dump($product);
 
         //si le produit n'existe pas

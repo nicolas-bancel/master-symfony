@@ -19,7 +19,8 @@
                         <h5 class="card-title">{{ product.name }}</h5>
                         <p class="card-text">{{ product.description }}</p>
                         <p class="card-text">{{ product.price }}</p>
-                        <a href="{{ path('product_show', {'id': product.id }) }}" class="btn btn-primary">Voir le
+                        <p class="card-text">slug: {{ product.slug }}</p>
+                        <a href="{{ path('product_show', {'slug': product.slug }) }}" class="btn btn-primary">Voir le
                             produit</a>
                         <div>
                             <a href="{{ path('product_modify', {'id': product.id }) }}" class="btn

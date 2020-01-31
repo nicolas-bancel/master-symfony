@@ -2,6 +2,7 @@
 
 namespace App\DataFixtures;
 
+use App\Entity\Product;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
 
@@ -9,8 +10,15 @@ class AppFixtures extends Fixture
 {
     public function load(ObjectManager $manager)
     {
-        // $product = new Product();
-        // $manager->persist($product);
+        for($i = 1; $i <= 100; $i++)
+        {
+            $product = new Product();
+            $product->setName('iPhone X '.$i);
+            $product->setDescription('Un iPhone de '.rand(2000, 2020));
+            $product->setPrice(rand(10, 1000)*100);
+            $product->setSlug('iPhone X '.$i);
+            $manager->persist($product);
+        }
 
         $manager->flush();
     }

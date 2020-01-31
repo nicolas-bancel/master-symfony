@@ -21,7 +21,7 @@ class IndexController extends AbstractController
 
         $entityManager = $this->getDoctrine()->getManager();
         $entityManager->persist($product);
-        $entityManager->flush();
+//        $entityManager->flush();
 
         return $this->render('index/homepage.html.twig');
     }

@@ -18,6 +18,7 @@ class ProductType extends AbstractType
             ->add('price', MoneyType::class, [
                 'divisor' => 100
             ])
+            ->add('slug')
         ;
     }
 
