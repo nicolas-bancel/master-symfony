@@ -2,13 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="202bd091-2a52-4726-ba73-b2abe952e4c6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/templates/form/fields.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Form/DataTransformer/TagsArrayToStringTransformer.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Form/Type/TagsInputType.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/twig.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/twig.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Category.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Product.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Tag.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Tag.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Form/ProductType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/ProductType.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -168,7 +166,7 @@
       <updated>1580311691168</updated>
       <workItem from="1580311692543" duration="856000" />
       <workItem from="1580312622120" duration="6219000" />
-      <workItem from="1580377764438" duration="45897000" />
+      <workItem from="1580377764438" duration="51537000" />
     </task>
     <servers />
   </component>
@@ -180,6 +178,14 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="720" y="311" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1580312235965" />
+    <state x="714" y="70" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1580814086455">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="714" y="70" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1580814086455" />
+    <state x="690" y="276" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1580816687582">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="690" y="276" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1580816687582" />
     <state x="703" y="344" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1580380280700">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
