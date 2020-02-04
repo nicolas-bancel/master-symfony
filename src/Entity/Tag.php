@@ -7,9 +7,9 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\TagRepository")
  */
-class User
+class Tag
 {
     /**
      * @ORM\Id()
@@ -21,10 +21,10 @@ class User
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $username;
+    private $Name;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Product", mappedBy="user", orphanRemoval=true)
+     * @ORM\ManyToMany(targetEntity="App\Entity\Product", mappedBy="Tags")
      */
     private $products;
 
@@ -38,14 +38,14 @@ class User
         return $this->id;
     }
 
-    public function getUsername(): ?string
+    public function getName(): ?string
     {
-        return $this->username;
+        return $this->Name;
     }
 
-    public function setUsername(string $username): self
+    public function setName(string $Name): self
     {
-        $this->username = $username;
+        $this->Name = $Name;
 
         return $this;
     }
@@ -62,7 +62,7 @@ class User
     {
         if (!$this->products->contains($product)) {
             $this->products[] = $product;
-            $product->setUser($this);
+            $product->addTag($this);
         }
 
         return $this;
@@ -72,17 +72,9 @@ class User
     {
         if ($this->products->contains($product)) {
             $this->products->removeElement($product);
-            // set the owning side to null (unless already changed)
-            if ($product->getUser() === $this) {
-                $product->setUser(null);
-            }
+            $product->removeTag($this);
         }
 
         return $this;
-    }
-
-    public function __toString()
-    {
-        return $this->getUsername();
     }
 }
