@@ -19,7 +19,11 @@
                         <h5 class="card-title">{{ product.name }}</h5>
                         <p class="card-text">{{ product.description }}</p>
                         <p class="card-text">{{ product.price }}</p>
+                        <p class="card-text">catégorie: {{ product.category.name }}</p>
                         <p class="card-text">slug: {{ product.slug }}</p>
+                        <p class="card-text">Vendeur: <a href="{{ path('user_show', {id: product.user.id}) }}">{{
+                                product.user.username
+                                }}</a></p>
                         <a href="{{ path('product_show', {'slug': product.slug }) }}" class="btn btn-primary">Voir le
                             produit</a>
                         <div>

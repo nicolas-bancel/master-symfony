@@ -2,6 +2,7 @@
 
 namespace App\DataFixtures;
 
+use App\Entity\Category;
 use App\Entity\Product;
 use App\Entity\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
@@ -27,7 +28,7 @@ class AppFixtures extends Fixture
     {
         $faker = Factory::create('ja_JP');
 
-        //on crée les utilisateurs
+        //on créé les utilisateurs
 
         $users = []; //le tableau va nous aider à stocker les instances des users
 
@@ -39,7 +40,21 @@ class AppFixtures extends Fixture
             $users[] = $user;
         }
 
-        //on crée les produits
+        //on créé les catégories
+
+        $categories = [];
+
+        for($i = 1; $i <= 2; $i++)
+        {
+            $category = new Category();
+            $category->setName($faker->colorName);
+            $category->setSlug($this->slugger->slug($category->getName())->lower());
+            $manager->persist($category);
+            $categories[] = $category;
+        }
+
+
+        //on créé les produits
         for($i = 1; $i <= 100; $i++)
         {
             $product = new Product();
@@ -49,6 +64,7 @@ class AppFixtures extends Fixture
 //            $product->setSlug(str_replace(" ","-",'iPhone X '.$i ));
             $product->setSlug($this->slugger->slug($product->getName())->lower());
             $product->setUser($users[rand(0,9)]);
+            $product->setCategory($categories[rand(0,1)]);
             $manager->persist($product);
         }
 
