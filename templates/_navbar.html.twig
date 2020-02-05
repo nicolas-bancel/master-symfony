@@ -21,10 +21,26 @@
                     <a class="nav-link" href="{{ path('category_index') }}">Catégories</a>
                 </li>
             </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>
+            <ul class="navbar-nav ml-auto">
+                {% if app.user %}
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown">
+                            {{ app.user.username }}
+                        </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="{{ path('logout') }}">Se déconnecter</a>
+                        </div>
+                    </div>
+                {% else %}
+                <li class="nav-item">
+                    <a href="{{ path('login') }}" class="btn btn-primary">Se connecter</a>
+                </li>
+                {% endif %}
+            </ul>
+{#            <form class="form-inline my-2 my-lg-0">#}
+{#                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">#}
+{#                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>#}
+{#            </form>#}
         </div>
     </div>
 </nav>
