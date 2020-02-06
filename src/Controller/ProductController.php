@@ -15,10 +15,11 @@ use Symfony\Component\String\Slugger\SluggerInterface;
 class ProductController extends AbstractController
 {
     /**
-     * @Route("/admin/product/create", name="product_create")
+     * @Route("/product/create", name="product_create")
      */
     public function create(Request $request, SluggerInterface $slugger, Uploader $uploader)
     {
+        $this->denyAccessUnlessGranted('ROLE_USER');
         $product = new Product();
         $form = $this->createForm(ProductType::class, $product);
 
@@ -27,6 +28,11 @@ class ProductController extends AbstractController
         if($form->isSubmitted() && $form->isValid())
         {
             $product->setSlug($slugger->slug($product->getName())->lower());
+
+            //quand un vendeur crée un produit, on l'associe a ce produit
+            if (!$product->getUser()) {
+                $product->setUser($this->getUser());
+            }
 
             /**@var UploadedFile $image*/
             //On fait l'upload de l'image
@@ -140,6 +146,8 @@ class ProductController extends AbstractController
      */
     public function delete(Request $request, Product $product, EntityManagerInterface $entityManager, Uploader $uploader)
     {
+        $this->denyAccessUnlessGranted('edit', $product);
+
         if ($this->isCsrfTokenValid('delete', $request->get('token'))) {
 
            if ($product->getImage())
