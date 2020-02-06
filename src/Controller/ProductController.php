@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Product;
 use App\Form\ProductType;
+use App\Service\Uploader;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
@@ -16,7 +17,7 @@ class ProductController extends AbstractController
     /**
      * @Route("/admin/product/create", name="product_create")
      */
-    public function create(Request $request, SluggerInterface $slugger)
+    public function create(Request $request, SluggerInterface $slugger, Uploader $uploader)
     {
         $product = new Product();
         $form = $this->createForm(ProductType::class, $product);
@@ -27,7 +28,13 @@ class ProductController extends AbstractController
         {
             $product->setSlug($slugger->slug($product->getName())->lower());
 
-
+            /**@var UploadedFile $image*/
+            //On fait l'upload de l'image
+            if ($image = $form->get('image')->getData()) {
+                $fileName = $uploader->upload($image);
+                //mettre à jour l'entité
+                $product->setImage($fileName);
+            }
 
             //ajouter en bdd
             $entityManager = $this->getDoctrine()->getManager();
@@ -67,7 +74,7 @@ class ProductController extends AbstractController
     /**
      * @Route("/product/modify/{id}", name="product_modify")
      */
-    public function modify(Request $request, Product $product, $uploadDir)
+    public function modify(Request $request, Product $product, Uploader $uploader)
     {
         $this->denyAccessUnlessGranted('edit', $product);
 
@@ -80,12 +87,13 @@ class ProductController extends AbstractController
             /**@var UploadedFile $image*/
             //On fait l'upload de l'image
             if ($image = $form->get('image')->getData()) {
-                dump('image');
-                dump($uploadDir);
 
-                //generer le nom de l'image
-                $fileName = uniqid().'.'.$image->guessExtension();
-                $image->move($uploadDir, $fileName);
+                if ($product->getImage())
+                {
+                    $uploader->remove($product->getImage());
+                }
+
+                $fileName = $uploader->upload($image);
                 //mettre à jour l'entité
                 $product->setImage($fileName);
             }
@@ -130,9 +138,15 @@ class ProductController extends AbstractController
     /**
      * @Route("/admin/product/delete/{id}", name="product_delete", methods={"POST"})
      */
-    public function delete(Request $request, Product $product, EntityManagerInterface $entityManager)
+    public function delete(Request $request, Product $product, EntityManagerInterface $entityManager, Uploader $uploader)
     {
         if ($this->isCsrfTokenValid('delete', $request->get('token'))) {
+
+           if ($product->getImage())
+           {
+               $uploader->remove($product->getImage());
+           }
+
             $entityManager->remove($product);
             $entityManager->flush();
         }
