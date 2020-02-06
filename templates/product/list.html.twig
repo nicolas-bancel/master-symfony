@@ -14,8 +14,13 @@
         {% for product in products %}
             <div class="col-lg-3">
                 <div class="card m-1" style="width: 18rem;">
-                    <img class="card-img-top" src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone-xr-select-2019-family?wid=882&amp;hei=1058&amp;fmt=jpeg&amp;qlt=80&amp;op_usm=0.5,0.5&amp;.v=1550795424612" alt="Card image cap">
+                    {% if product.image %}
+                    <img class="card-img-top" src="{{ asset('uploads/' ~ product.image) }}" alt="{{ product.name }}">
                     <div class="card-body">
+                    {% else %}
+                    <img class="card-img-top" src="{{ asset('uploads/' ~ 'default.jpg') }}" alt="{{ product.name }}">
+                    <div class="card-body">
+                    {% endif %}
                         <h5 class="card-title">{{ product.name }}</h5>
                         <p class="card-text">{{ product.description }}</p>
                         <p class="card-text">{{ product.price }}</p>
@@ -26,6 +31,7 @@
                                 }}</a></p>
                         <a href="{{ path('product_show', {'slug': product.slug }) }}" class="btn btn-primary">Voir le
                             produit</a>
+                        {% if is_granted('ROLE_ADMIN') or app.user == product.user %}
                         <div>
                             <a href="{{ path('product_modify', {'id': product.id }) }}" class="btn
                             btn-primary">modifier le produit</a>
@@ -34,6 +40,7 @@
                             <input type="hidden" name="token" value="{{ csrf_token('delete') }}">
                             <button class="btn btn-primary"> supprimer </button>
                         </form>
+                        {% endif %}
                     </div>
                 </div>
             </div>

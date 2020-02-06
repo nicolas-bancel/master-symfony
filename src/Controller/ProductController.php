@@ -6,6 +6,7 @@ use App\Entity\Product;
 use App\Form\ProductType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\String\Slugger\SluggerInterface;
@@ -13,7 +14,7 @@ use Symfony\Component\String\Slugger\SluggerInterface;
 class ProductController extends AbstractController
 {
     /**
-     * @Route("/product/create", name="product_create")
+     * @Route("/admin/product/create", name="product_create")
      */
     public function create(Request $request, SluggerInterface $slugger)
     {
@@ -25,6 +26,9 @@ class ProductController extends AbstractController
         if($form->isSubmitted() && $form->isValid())
         {
             $product->setSlug($slugger->slug($product->getName())->lower());
+
+
+
             //ajouter en bdd
             $entityManager = $this->getDoctrine()->getManager();
             //on met l'objet en attente
@@ -63,13 +67,30 @@ class ProductController extends AbstractController
     /**
      * @Route("/product/modify/{id}", name="product_modify")
      */
-    public function modify(Request $request, Product $product)
+    public function modify(Request $request, Product $product, $uploadDir)
     {
+        $this->denyAccessUnlessGranted('edit', $product);
+
         $form = $this->createForm(ProductType::class, $product);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid())
         {
+
+            /**@var UploadedFile $image*/
+            //On fait l'upload de l'image
+            if ($image = $form->get('image')->getData()) {
+                dump('image');
+                dump($uploadDir);
+
+                //generer le nom de l'image
+                $fileName = uniqid().'.'.$image->guessExtension();
+                $image->move($uploadDir, $fileName);
+                //mettre à jour l'entité
+                $product->setImage($fileName);
+            }
+
+
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('product_list');
@@ -107,7 +128,7 @@ class ProductController extends AbstractController
 
 
     /**
-     * @Route("/product/delete/{id}", name="product_delete", methods={"POST"})
+     * @Route("/admin/product/delete/{id}", name="product_delete", methods={"POST"})
      */
     public function delete(Request $request, Product $product, EntityManagerInterface $entityManager)
     {

@@ -7,3 +7,20 @@
     border-radius: 2px;
     padding: 1px;
 }
+
+.admin {
+    min-height: 100vh;
+}
+
+.admin-navbar {
+    width: 20vw;
+}
+
+.admin-navbar a {
+    color: #f1f2f3;
+    text-decoration: none;
+}
+
+.admin-navbar li:hover {
+    background-color: rebeccapurple;
+}
